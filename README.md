@@ -6,8 +6,7 @@ It's currently supports average-rating report, though new reports can be added.
 ## Usage
 
 ```bash
-poetry install --no-root
-source .venv/bin/activate # using WSL
+poetry install
 python main.py --files <paths_to_csv_files> --report <report_name>
 ```
 
