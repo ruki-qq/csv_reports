@@ -52,8 +52,6 @@ class TestIntegration:
         assert apple_rating > samsung_rating
 
     def test_table_creation_with_real_data(self, sample_csv_data):
-        """Test table creation with real sample data."""
-
         report = AverageRatingReport()
         report_data = report.generate(sample_csv_data)
 
@@ -66,8 +64,6 @@ class TestIntegration:
         assert table.title == "Brand Ratings"
 
     def test_performance_with_large_dataset(self):
-        """Test performance with larger dataset."""
-
         large_data = []
         brands = ["apple", "samsung", "xiaomi", "huawei", "oneplus"]
 
