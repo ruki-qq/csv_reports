@@ -31,7 +31,9 @@ def main(args: list[str] = None) -> int:
     console = Console()
     products: list[dict[str, str]] = []
 
-    for file in parsed_args.files:
+    files: set[str] = set(parsed_args.files)
+
+    for file in files:
         is_valid, msg = CsvReader(Path(file)).check_csv_file
         if not is_valid:
             logger.warning(msg)
