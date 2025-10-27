@@ -27,12 +27,18 @@ python -m pytest -vvv
 ### Basic usage
 ![alt](https://files.catbox.moe/1lij66.png)
 
+
 ### Some error handling
 ![alt](https://files.catbox.moe/ari1tq.png)
 
 ![alt](https://files.catbox.moe/usmkkt.png)
 
+
 ### Multi-file usage
 ![alt](https://files.catbox.moe/ez7q54.png)
 
 ![alt](https://files.catbox.moe/sst2vr.png)
+
+
+### Tests coverage
+![alt](https://files.catbox.moe/m58cmc.png)
