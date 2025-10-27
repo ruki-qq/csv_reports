@@ -7,16 +7,12 @@ class TestAverageRatingReport:
     """Test cases for AverageRatingReport class."""
 
     def test_generate_empty_data(self):
-        """Test generating report with empty data."""
-
         report = AverageRatingReport()
         result = report.generate([])
 
         assert result == []
 
     def test_generate_single_product(self):
-        """Test generating report with single product."""
-
         report = AverageRatingReport()
         data = [{"brand": "apple", "rating": "4.5"}]
         result = report.generate(data)
@@ -41,8 +37,6 @@ class TestAverageRatingReport:
         assert result[0]["rating"] == 4.5
 
     def test_generate_multiple_brands(self, sample_csv_data):
-        """Test generating report with multiple brands."""
-
         report = AverageRatingReport()
         result = report.generate(sample_csv_data)
 
@@ -67,8 +61,6 @@ class TestAverageRatingReport:
         assert result[0]["rating"] == 4.5
 
     def test_generate_invalid_rating(self):
-        """Test generating report with invalid rating values."""
-
         report = AverageRatingReport()
         data = [{"brand": "apple", "rating": "invalid"}]
 
@@ -76,8 +68,6 @@ class TestAverageRatingReport:
             report.generate(data)
 
     def test_generate_missing_brand_key(self):
-        """Test generating report with missing brand key."""
-
         report = AverageRatingReport()
         data = [{"rating": "4.5"}]
 
@@ -85,8 +75,6 @@ class TestAverageRatingReport:
             report.generate(data)
 
     def test_generate_missing_rating_key(self):
-        """Test generating report with missing rating key."""
-
         report = AverageRatingReport()
         data = [{"brand": "apple"}]
 
@@ -94,8 +82,6 @@ class TestAverageRatingReport:
             report.generate(data)
 
     def test_generate_non_numeric_rating_key(self):
-        """Test generating report with missing rating key."""
-
         report = AverageRatingReport()
         data = [{"brand": "apple", "rating": "four"}]
 
@@ -107,20 +93,15 @@ class TestReportRegistry:
     """Test cases for ReportRegistry class."""
 
     def test_get_report_valid(self):
-        """Test getting a valid report."""
         report = ReportRegistry.get_report("average-rating")
 
         assert isinstance(report, AverageRatingReport)
 
     def test_get_report_invalid(self):
-        """Test getting an invalid report."""
-
         with pytest.raises(ValueError, match="Report 'invalid-report' isn't found"):
             ReportRegistry.get_report("invalid-report")
 
     def test_get_available_reports(self):
-        """Test getting available reports."""
-
         reports = ReportRegistry.get_available_reports()
 
         assert isinstance(reports, list)
