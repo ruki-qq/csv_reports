@@ -52,7 +52,6 @@ class AverageRatingReport(BaseReport):
             try:
                 is_numeric(rating)
             except ValueError as e:
-                logger.error(e)
                 raise ValueError(e)
 
             rating = convert_to_number(product["rating"])
@@ -98,7 +97,6 @@ class ReportRegistry:
                 f"Report '{report_name}' isn't found."
                 f"Available reports: {', '.join(cls._reports)}"
             )
-            logger.error(error_msg)
             raise ValueError(error_msg)
 
         logger.info(f"Successfully created report instance for: {report_name}")

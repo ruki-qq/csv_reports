@@ -20,12 +20,10 @@ class CsvReader:
 
         if not self.file.is_file():
             error_msg = f"File {self.file} does not exist!"
-            logger.error(error_msg)
             return False, error_msg
 
         if not self.file.suffix == ".csv":
             error_msg = f"File {self.file} is not a CSV file!"
-            logger.error(error_msg)
             return False, error_msg
 
         try:
@@ -37,7 +35,6 @@ class CsvReader:
 
                 if len(rows) == 0:
                     error_msg = f"CSV file {self.file} is empty!"
-                    logger.warning(error_msg)
                     return False, error_msg
 
                 for row in rows:
@@ -49,7 +46,6 @@ class CsvReader:
 
         except csv.Error as e:
             error_msg = f"File {self.file} is not a valid CSV format! Error: {str(e)}"
-            logger.error(error_msg)
             return False, error_msg
         except Exception as e:
             error_msg = f"Error reading file: {str(e)}!"
