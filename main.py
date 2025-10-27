@@ -44,9 +44,8 @@ def main(args: list[str] = None) -> int:
         logger.error("No products found.")
         exit(1)
 
-    report_generator = ReportRegistry.get_report(parsed_args.report)
-
     try:
+        report_generator = ReportRegistry.get_report(parsed_args.report)
         report_data = report_generator.generate(products)
     except Exception as e:
         logger.error(e)
