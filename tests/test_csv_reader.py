@@ -64,10 +64,10 @@ class TestCsvReader:
         data = reader.load_csv
 
         assert len(data) == len(sample_csv_data)
-        assert data[0]["name"] == "iphone 15 pro"
-        assert data[0]["brand"] == "apple"
-        assert data[0]["price"] == "999"
-        assert data[0]["rating"] == "4.9"
+        assert data[0]["name"] == sample_csv_data[0]["name"]
+        assert data[0]["brand"] == sample_csv_data[0]["brand"]
+        assert data[0]["price"] == sample_csv_data[0]["price"]
+        assert data[0]["rating"] == sample_csv_data[0]["rating"]
 
     def test_load_csv_file_not_found(self, nonexistent_file):
         """Test loading a non-existent CSV file."""
