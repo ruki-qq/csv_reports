@@ -42,7 +42,7 @@ def main(args: list[str] = None) -> int:
 
     if not products:
         logger.error("No products found.")
-        return 1
+        exit(1)
 
     report_generator = ReportRegistry.get_report(parsed_args.report)
 
@@ -50,11 +50,11 @@ def main(args: list[str] = None) -> int:
         report_data = report_generator.generate(products)
     except Exception as e:
         logger.error(e)
-        return 1
+        exit(1)
 
     table = TableCreator(report_data, parsed_args.report)
     console.print(table.create_table())
-    return 0
+    exit(0)
 
 
 if __name__ == "__main__":
