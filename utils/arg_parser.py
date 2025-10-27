@@ -11,5 +11,6 @@ class ArgParser(argparse.ArgumentParser):
         )
         self.add_argument(
             "--report",
+            required=True,
             help="Creating <report-name> with given files.",
         )
